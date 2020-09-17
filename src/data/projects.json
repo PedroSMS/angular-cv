@@ -1,0 +1,54 @@
+[
+  {
+    "Id":"1",
+    "Name":"Projeto Final",
+    "Description":"Aplicação web usada para criar e gerir orçamentos da oficina automóvel da ATEC",
+    "Stack":
+    [
+      "c#",
+      ".net core",
+      "javascript",
+      "mssql",
+      "css3",
+      "html5"
+    ]
+  },
+  {
+    "Id":"2",
+    "Name":"Estágio Curricular",
+    "Description":"Aplicação mobile que permite consultar qualquer informação acerca dos seus equipamentos",
+    "Stack":
+    [
+      "c#",
+      ".net core",
+      "postgresql",
+      "xamarin.forms"
+    ]
+  },
+  {
+    "Id":"3",
+    "Name":"NOS UC",
+    "Description":"Aplicação web que permite gerar e descarregar um LLD",
+    "Stack":
+    [
+      "c#",
+      ".asp net",
+      "javascript",
+      "mssql",
+      "css3",
+      "html5"
+    ]
+  },
+  {
+    "Id":"4",
+    "Name":"NOS ET",
+    "Description":"Aplicação web que permite gerir os terminais da empresa",
+    "Stack":[
+      "php",
+      "javascript",
+      "mysql",
+      "css3",
+      "html5"
+    ]
+  }
+]

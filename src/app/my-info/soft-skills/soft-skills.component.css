@@ -1,0 +1,63 @@
+#progressTP {
+  width: 80%;
+  animation-name: progressBarTP;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+#progressV {
+  width: 70%;
+  animation-name: progressBarV;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+#progressPS {
+  width: 68%;
+  animation-name: progressBarPS;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+#progressE {
+  width: 63%;
+  animation-name: progressBarE;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+@keyframes progressBarTP {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes progressBarV {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+
+@keyframes progressBarPS {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 68%;
+  }
+}
+
+@keyframes progressBarE {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 63%;
+  }
+}

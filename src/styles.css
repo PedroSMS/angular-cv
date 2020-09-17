@@ -1,1 +1,13 @@
+@import 'assets/progressBars.css';
+@import 'assets/tabs.css';
+
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Consolas, monaco, monospace;
+  color: black;
+}
+
+body{
+  background-image: url(./assets/img/background-img.png);
+}
+

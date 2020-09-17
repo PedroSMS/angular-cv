@@ -1,0 +1,63 @@
+#progressAngular {
+  width: 49%;
+  animation-name: progressBarA;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+#progressC {
+  width: 80%;
+  animation-name: progressBarC;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+#progressNet {
+  width: 75%;
+  animation-name: progressBarNet;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+#progressJS {
+  width: 70%;
+  animation-name: progressBarJS;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
+@keyframes progressBarA {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 49%;
+  }
+}
+
+@keyframes progressBarC {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes progressBarNet {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+@keyframes progressBarJS {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 70%;
+  }
+}
