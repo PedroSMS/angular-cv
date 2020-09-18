@@ -29,9 +29,8 @@ span.span {
 @media screen and (max-height: 800px) {
   .go-cv-btn {
     position: absolute;
-    right: 5%;
-    top: 5%;
-    max-width: 150px;
+    top: 15%;
+    max-width: 200px;
     max-height: 40px;
   }
 }

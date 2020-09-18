@@ -22,15 +22,18 @@ import { Router } from '@angular/router';
   ]
 })
 export class WelcomePageComponent implements OnInit {
-  index = 0;
-  words = [ 'Pedro de Sousa', 'Software Developer', '.NET Enthusiastic', 'Fast Learner', 'Team Player'];
-  word = 'Pedro de Sousa';
+  index: number = 0;
+  words: string[] = [ 'Pedro de Sousa', 'Software Developer', '.NET Enthusiastic', 'Fast Learner', 'Team Player'];
+  word: string = 'Pedro de Sousa';
+  intervalId: any;
+  goToInfo: boolean = true;
 
   constructor(private router: Router) {
-    setInterval(() => this.changeWord(), 2000);
+    this.intervalId = setInterval(() => this.changeWord(), 2000);
   }
 
   ngOnInit(): void {
+
   }
 
   changeWord() {
@@ -47,6 +50,22 @@ export class WelcomePageComponent implements OnInit {
     }
 
     this.word = this.words[this.index];
+  }
+
+  goToMyInfo(){
+    this.disappearWelcomePage()
+      .then(() => {
+        this.router.navigate(['my-info'])
+      });
+  }
+
+  disappearWelcomePage(){
+    return new Promise((resolve, rej) => {
+      clearInterval(this.intervalId);
+      this.goToInfo = false;
+
+      setTimeout(resolve, 1);
+    })
   }
 
 }

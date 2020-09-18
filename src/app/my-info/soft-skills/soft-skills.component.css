@@ -26,6 +26,13 @@
   animation-duration: 2s;
 }
 
+#progressFL {
+  width: 76%;
+  animation-name: progressBarFL;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+
 @keyframes progressBarTP {
   0% {
     width: 10%;
@@ -59,5 +66,14 @@
   }
   100% {
     width: 63%;
+  }
+}
+
+@keyframes progressBarFL {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 76%;
   }
 }
