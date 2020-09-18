@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/progressBars.css';
+@import 'assets/tabs.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+* {
+  font-family: Consolas, monaco, monospace;
+  color: black;
+}
+
+body{
+  background-image: url(./assets/img/background-img.png);
+}
+
+.ng-invalid.ng-touched{
+  border-color: #cc0000;
+}
+
+.error-block{
+  color: #cc0000;
+}

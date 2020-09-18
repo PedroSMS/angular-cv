@@ -1,0 +1,36 @@
+img {
+  margin-top: 100px;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+h1 {
+  color: black;
+  font-weight: bolder;
+}
+
+span.span {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.go-cv-btn{
+  position: absolute;
+  bottom: 15%;
+}
+
+ .go-cv-btn:hover{
+  position: absolute;
+  bottom: 15%;
+  opacity: 0.9;
+}
+
+@media screen and (max-height: 800px) {
+  .go-cv-btn {
+    position: absolute;
+    top: 15%;
+    max-width: 200px;
+    max-height: 40px;
+  }
+}
