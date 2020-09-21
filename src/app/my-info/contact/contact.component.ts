@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { EmailRequest } from 'src/app/models/email-request';
 import { AlertifyService } from './alertify.service';
 import { EmailService } from './email.service';
@@ -12,7 +13,7 @@ import { EmailService } from './email.service';
 export class ContactComponent implements OnInit {
 
   contactMeForm: FormGroup;
-  constructor(private fb: FormBuilder, private alertify: AlertifyService, private emailServices: EmailService) { }
+  constructor(private fb: FormBuilder, private alertify: AlertifyService, private emailServices: EmailService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.createContactMeForm();
@@ -42,19 +43,26 @@ export class ContactComponent implements OnInit {
 
   onSend(){
     if(this.contactMeForm.valid){
-      this.emailServices.send(new EmailRequest(this.contactMeForm.value.name, this.contactMeForm.value.email, this.contactMeForm.value.message )).subscribe(
-        data => {
-          if(data === 200)
-          {
-            this.alertify.success("Your message has been sent :)");
-            this.contactMeForm.reset();
+      this.spinner.show();
+      setTimeout(() => {
+
+        this.emailServices.send(new EmailRequest(this.contactMeForm.value.name, this.contactMeForm.value.email, this.contactMeForm.value.message )).subscribe(
+          response => {
+
+            if(response.message === 'Email sent')
+            {
+              this.contactMeForm.reset();
+              this.spinner.hide();
+              this.alertify.success("Your message has been sent :)");
+            }
+            else
+            {
+              this.spinner.hide();
+              this.alertify.error("Your message could not be sent... Try again later :(");
+            }
           }
-          else
-          {
-            this.alertify.error("Your message could not be sent... Try again later :(");
-          }
-        }
-      );
+        );
+      }, 2000);
     }else{
       this.alertify.error("Please fill all fields before sending");
     }

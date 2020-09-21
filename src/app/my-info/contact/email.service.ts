@@ -16,6 +16,6 @@ export class EmailService {
       'Content-Type': 'application/json',
     });
 
-    return this.http.post<any>('http://localhost:5000/api/email', emailRequest, { headers: headers} ).pipe();
+    return this.http.post<any>('http://127.0.0.1:8000/email', emailRequest, { headers: headers} );
   }
 }
