@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { EmailRequest } from 'src/app/models/email-request';
 
 @Injectable({
@@ -16,6 +16,10 @@ export class EmailService {
       'Content-Type': 'application/json',
     });
 
-    return this.http.post<any>('http://127.0.0.1:8000/email', emailRequest, { headers: headers} );
+    return this.http.post<any>('http://127.0.0.1:8000/email', emailRequest, { headers: headers} ).pipe(
+      catchError(err => {
+        return of(null);
+      })
+    );
   }
 }

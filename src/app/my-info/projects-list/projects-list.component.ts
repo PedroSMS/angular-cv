@@ -9,12 +9,12 @@ import { LocalProjectsService } from './local-projects.service';
   styleUrls: ['./projects-list.component.css']
 })
 export class ProjectsListComponent implements OnInit {
-  projectsAll: Project[];
+  projectsAll: Project[] = [];
   page: number = 1;
   pageSize: number = 4;
   itsAllLoaded: boolean = false;
   collectionSize: number = 0;
-  projects: Project[];
+  projects: Project[] = [];
 
   constructor(private gitHubService: GitHubService, private localProjectsService: LocalProjectsService) { }
 
@@ -23,23 +23,47 @@ export class ProjectsListComponent implements OnInit {
   }
 
   getAllProjects(){
+    this.getLocalProjects().then(
+      (data) => {
+        this.projectsAll = data as Project[];
+      }
+    ).then(
+      () => {
+        this.getGitHubProjects().then(
+          (data) => {
+            for(const id in data as Project){
+                this.projectsAll.push(data[id]);
+            }
+          }
+        ).then(
+          () => {
+            this.collectionSize = this.projectsAll.length;
+            this.refreshProjects();
+            this.itsAllLoaded = true;
+          }
+        )
+      }
+    )
+  }
+
+  getLocalProjects(){
+    return new Promise((resolve, reject) => {
       this.localProjectsService.getProjects().subscribe(
         data => {
-          this.projectsAll = data;
+          resolve(data);
         }
       )
+    })
+  }
 
+  getGitHubProjects(){
+    return new Promise((resolve, reject) => {
       this.gitHubService.getProjects().subscribe(
         data => {
-          for(const id in data){
-            this.projectsAll.push(data[id]);
-
-          }
-          this.collectionSize = this.projectsAll.length;
-          this.refreshProjects();
-          this.itsAllLoaded = true;
+          resolve(data);
         }
       )
+    })
   }
 
   refreshProjects() {

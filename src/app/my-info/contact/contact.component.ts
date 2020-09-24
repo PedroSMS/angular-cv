@@ -44,11 +44,10 @@ export class ContactComponent implements OnInit {
   onSend(){
     if(this.contactMeForm.valid){
       this.spinner.show();
-      setTimeout(() => {
 
+      try{
         this.emailServices.send(new EmailRequest(this.contactMeForm.value.name, this.contactMeForm.value.email, this.contactMeForm.value.message )).subscribe(
           response => {
-
             if(response.message === 'Email sent')
             {
               this.contactMeForm.reset();
@@ -62,7 +61,11 @@ export class ContactComponent implements OnInit {
             }
           }
         );
-      }, 2000);
+      }catch(err){
+        this.spinner.hide();
+        this.alertify.error("Your message could not be sent... Try again later :(");
+      }
+
     }else{
       this.alertify.error("Please fill all fields before sending");
     }

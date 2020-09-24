@@ -57,6 +57,7 @@ export class WelcomePageComponent implements OnInit {
       .then(() => {
         this.router.navigate(['my-info'])
       });
+
   }
 
   disappearWelcomePage(){
@@ -64,7 +65,7 @@ export class WelcomePageComponent implements OnInit {
       clearInterval(this.intervalId);
       this.goToInfo = false;
 
-      setTimeout(resolve, 1);
+      setTimeout(resolve, 0.1);
     })
   }
 
