@@ -53,7 +53,7 @@ export class ContactComponent implements OnInit {
               this.spinner.hide();
               this.alertify.error("Your message could not be sent... Try again later :(");
             }
-            else if(response.message === 'Email sent')
+            else if(response === 'Email sent!')
             {
               this.contactMeForm.reset();
               this.spinner.hide();
