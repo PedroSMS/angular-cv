@@ -22,7 +22,7 @@ export class ContactComponent implements OnInit {
   createContactMeForm(){
     this.contactMeForm = this.fb.group({
       name: new FormControl(null, Validators.required),
-      email: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       message: new FormControl(null, Validators.required)
     });
   }
