@@ -1,0 +1,29 @@
+<ngx-spinner color="#FFFFFF" bdColor="rgba(0, 0, 0, 0.6)" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Sending the email...</p>
+</ngx-spinner>
+<form [formGroup]="contactMeForm" (ngSubmit)="onSend()">
+  <div class="form-group col-12 mb-1">
+    <label>Name</label>
+    <input class="form-control" formControlName="name" type="text" required />
+    <span class="error-block" *ngIf="!name.valid && name.touched">
+      Please provide a name
+    </span>
+  </div>
+  <div class="form-group col-12 mb-1">
+    <label>Email</label>
+    <input class="form-control" type="text" formControlName="email" required />
+    <span class="error-block" *ngIf="!email.valid && email.touched">
+      Please provide an email
+    </span>
+  </div>
+  <div class="form-group col-12 mb-3">
+    <label>Message</label>
+    <textarea class="form-control" formControlName="message" rows="5" required></textarea>
+    <span class="error-block" *ngIf="!message.valid && message.touched">
+      Please provide a message
+    </span>
+  </div>
+  <div class="form-group col-12 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary">Send</button>
+  </div>
+</form>

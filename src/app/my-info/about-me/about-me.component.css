@@ -1,0 +1,14 @@
+img {
+  border-radius: 50%;
+  width: 230px;
+  height: 230px;
+}
+
+.about-me-p{
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#about-me-div-p p{
+  line-height: 10px;;
+}
