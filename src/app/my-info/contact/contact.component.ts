@@ -48,7 +48,12 @@ export class ContactComponent implements OnInit {
       try{
         this.emailServices.send(new EmailRequest(this.contactMeForm.value.name, this.contactMeForm.value.email, this.contactMeForm.value.message )).subscribe(
           response => {
-            if(response.message === 'Email sent')
+            if(response === null)
+            {
+              this.spinner.hide();
+              this.alertify.error("Your message could not be sent... Try again later :(");
+            }
+            else if(response.message === 'Email sent')
             {
               this.contactMeForm.reset();
               this.spinner.hide();

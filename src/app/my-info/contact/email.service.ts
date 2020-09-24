@@ -16,7 +16,7 @@ export class EmailService {
       'Content-Type': 'application/json',
     });
 
-    return this.http.post<any>('http://127.0.0.1:8000/email', emailRequest, { headers: headers} ).pipe(
+    return this.http.post<any>('https://us-central1-nodejs-api-cv.cloudfunctions.net/webApi/email', emailRequest, { headers: headers} ).pipe(
       catchError(err => {
         return of(null);
       })
